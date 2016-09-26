@@ -1,0 +1,81 @@
+definitions:
+
+    User:
+      type: object
+      properties:
+        name:
+          type: object
+          schema:
+            $ref: '#/definitions/FullName'
+        email:
+          type: string
+        fbtokenid:
+          type: string
+        androidregid:
+          type: string
+        recentlocation:
+          type: object
+          schema:
+            $ref: '#/definitions/Location'
+
+    FullName:
+      type: object
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
+
+    Location:
+      properties:
+          lat:
+            type: string
+            required: true
+          lon:
+            type: string
+            required: true
+
+    Event:
+      properties:
+        title:
+          type: string
+          default: 'New Event'
+        description:
+          type: string
+        category:
+          type: string
+        location:
+          type: object
+          schema:
+            $ref: '#/definitions/Location'
+        capacity:
+          type: integer
+          format: int32
+          default: 1
+        startTime:
+        createTime:
+        creator:
+          type: string
+        users:
+          type: object
+          schema:
+            $ref: '#/definitions/EventUsers'
+        timeout:
+          type: integer
+          format: int32
+        userPermissions:
+          type: string
+        canceled:
+          type: boolean
+
+    EventUsers:
+      properties:
+        invited:
+          type: array
+          items: string
+        accepted:
+          type: array
+          items: string
+        declined:
+          type: array
+          items: string
