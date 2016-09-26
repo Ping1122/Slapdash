@@ -1,6 +1,7 @@
 const http = require('http');
 const debug = require('debug');
 const server = require('./lib/server.js');
+const engine = require('./engine/engine.js')
 /**
  * Set the debug for this file the 'app' debugger
  */
@@ -13,6 +14,9 @@ slapDashServer.listen(port);
 slapDashServer.on('error', httpOnError);
 slapDashServer.on('listening', httpOnListening);
 
+// Initialize the engine
+engine.engine();
+engine.run(); // just for testing right now.
 
 /**
  * Function to be called if the server failed opening
