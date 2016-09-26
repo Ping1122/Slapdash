@@ -2,6 +2,7 @@
 	
 ## Installing dependencies
 run
+
 	npm install
 
 
@@ -69,4 +70,13 @@ done in the /lib/server-route.js
 
 You can view the Swagger UI in the path 'localhost:4000/swaggerui/'
 when running it locally.
+
+## Test
+To Test you have to install mocha globally first. after running
+npm install run:
+	
+	npm install -g mocha
+
+Then run mocha and mocha will pick up all the js files in the 
+'test' directory and run them.
 

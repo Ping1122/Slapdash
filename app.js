@@ -1,6 +1,7 @@
 const http = require('http');
 const debug = require('debug');
 const server = require('./lib/server.js');
+const database = require('./database/database.js');
 /**
  * Set the debug for this file the 'app' debugger
  */
@@ -9,6 +10,8 @@ var port = getPort();
 
 // Start the server
 var slapDashServer = http.createServer(server);
+database.databaseInit();
+
 slapDashServer.listen(port);
 slapDashServer.on('error', httpOnError);
 slapDashServer.on('listening', httpOnListening);
